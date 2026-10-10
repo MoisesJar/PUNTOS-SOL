@@ -50,7 +50,7 @@ contract PuntosCafe is ERC20, ERC20Burnable, Ownable {
     /// @param puntos Cantidad de puntos a canjear.
     /// @param recompensa Descripción de la recompensa (ej. "Cafe americano gratis").
     function canjear(uint256 puntos, string calldata recompensa) external {
-        require(puntos > 0, "Puntos debe ser mayor a 0");
+        require(puntos == 2, "El cafe americano cuesta 2 ");
         _burn(msg.sender, puntos); // revierte solo si no tiene saldo suficiente
         emit PuntosCanjeados(msg.sender, puntos, recompensa);
     }
